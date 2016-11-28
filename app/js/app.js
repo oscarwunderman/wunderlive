@@ -118,6 +118,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             $scope.tab = 'categories';
             $scope.showTabMenu = true;
         }
+        $scope.slides = [];
 
         $scope.setTab = function (tabId) {
             $scope.tab = tabId;
@@ -136,7 +137,6 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         var current = 0;
         socket.on('tweets',function(data){
             //console.log('tweets');
-            $scope.slides = [];
             $timeout(function(){                  
                 $scope.slides = [];
                 var tweets = JSON.parse(data);

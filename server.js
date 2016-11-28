@@ -28,7 +28,7 @@ var changeTimeoutInterval = (carouselTimeoutInterval * 10); // Tweets lenght
 function PostCode(funct, dataobject, callback) {
     var post_data = querystring.stringify(dataobject);
     var post_options = {
-        host: 'wunderlive-tweets.herokuapp.com',
+        host: 'wundermanlive-tweets.herokuapp.com',
         port: '80',
         path: '/server/controllers/'+ funct,
         method: 'POST',

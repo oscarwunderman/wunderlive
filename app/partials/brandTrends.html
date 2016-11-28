@@ -1,0 +1,21 @@
+<div class="row" id="brand-trends">
+    <div class="col-lg-12 ">
+        <div class="well">
+            <ul id="trends-categories" class="list-group" data-query='{{categories}}'>
+                <li class="list-group-item" ng-repeat="(key, value) in categories track by $index">
+                    <a class="brandTrendsCategory" data-category="{{ key.toLowerCase() }}" ng-click="trendBot($index,key,value)">
+                       {{value}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="" ng-show="brand !== false" >
+        <div class="brand_trends col-lg-12" id="brand_trends_result">
+            <div id="{{brand_key}}" class="{{brand_key}}">
+                <p class="title">{{brand_name}}</p>
+                <div trend-data ng-show="brand !== false"></div>
+            </div>
+        </div>         
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{
+  "name": "wunderlive",
+  "version": "1.0.0",
+  "description": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "socket"
+  ],
+  "author": "wunderman.es",
+  "engines": {
+    "node": "4.2.1"
+  },
+  "dependencies": {
+    "express": "^4.11.0",
+    "socket.io": "^1.3.2"
+  }
+}

@@ -1,0 +1,5 @@
+<ul id="tweets-categories" class="list-group">
+    <li ng-repeat="cat in cats track by $index" class="list-group-item" data-category="{{cat.id}}" ng-class="{ 'active' : cat.active }">
+      <a ng-click="set(cat.id)" >{{cat.name}}</a>
+    </li>
+</ul>

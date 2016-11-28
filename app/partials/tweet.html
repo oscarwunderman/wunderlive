@@ -1,0 +1,58 @@
+<!--<uib-carousel interval="myInterval" no-wrap="noWrapSlides" on-carousel-change="onSlideChanged(nextSlide, direction)">
+    <uib-slide ng-repeat="slide in slides" active="slide.active">
+        <a ng-href="https://twitter.com/statuses/{{slide.tw_id}}" target="_blank">
+            <div class="carousel-caption">
+                <img ng-show="slide.photo" class="photo" ng-src="{{slide.photo}}" alt="" width="48">
+                <h4 class="media-heading">
+                    {{slide.name}} 
+                    <small>@{{slide.account}}</small>
+                    <span class="dot"> · </span> 
+                    <small>{{slide.tw_created}}</small>
+                </h4>
+                <p>{{slide.text}}</p>
+            </div>       
+            <div class="media-img">
+                <img ng-show="slide.media && !slide.video && !slide.media_url" class="carousel-image" ng-src="{{slide.media}}" alt="" width="80%">
+                <video ng-show="slide.video && !slide.media_url" width="600" height="300" controls>
+                  <source ng-src="{{slide.video}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video> 
+                <img ng-show="slide.media_url" class="carousel-image url" ng-src="{{slide.media_url}}" alt="" width="80%">
+            </div>     
+        </a>
+    </uib-slide>
+</uib-carousel>-->
+<div class="carouselbox">
+  <div class="buttons">
+    <button class="prev" ng-click="move(-1)">
+       ◀ <span class="offscreen">Previous</span>
+    </button>
+    <button class="next" ng-click="move(1)">
+      <span class="offscreen">Next</span> ▶ 
+    </button>
+  </div>
+  <ol class="content">
+    <li ng-repeat="slide in slides" ng-class="{ 'current' : slide.current }">
+        <a ng-href="https://twitter.com/statuses/{{slide.tw_id}}" target="_blank">
+            <div class="carousel-caption">
+                <img ng-show="slide.photo" class="photo" ng-src="{{slide.photo}}" alt="" width="48">
+                <h4 class="media-heading">
+                    {{slide.name}} 
+                    <small>@{{slide.account}}</small>
+                    <span class="dot"> · </span> 
+                    <small>{{slide.tw_created}}</small>
+                </h4>
+                <p>{{slide.text}}</p>
+            </div>       
+            <div class="media-img">
+                <img ng-show="slide.media && !slide.video && !slide.media_url" class="carousel-image" ng-src="{{slide.media}}" alt="">
+                <video ng-show="slide.video && !slide.media_url" width="600" height="300" controls>
+                  <source ng-src="{{slide.video}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video> 
+                <img ng-show="slide.media_url" class="carousel-image url" ng-src="{{slide.media_url}}" alt="">
+            </div>     
+        </a>
+    </li>
+  </ol>
+</div>

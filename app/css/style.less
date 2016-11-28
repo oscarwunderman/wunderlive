@@ -1,0 +1,684 @@
+/*!
+ * Start Bootstrap - Blog Post HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    /*padding-top: 70px;*/ /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    margin: 0;padding: 0;
+    position:relative;
+    font-family: tahoma;
+    padding-bottom: 60px;
+}
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+.dark-primary-color    { background: #455A64; }
+.default-primary-color { background: #607D8B; }
+.light-primary-color   { background: #CFD8DC; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #00BCD4; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #727272; }
+.divider-color         { border-color: #B6B6B6; }
+
+
+@primary-color: #607D8B;
+@dark-color: #455A64;
+@light-color: #CFD8DC;
+@accent-color: #00BCD4;
+
+a {color: inherit;}
+
+#tweets-categories .list-group-item{ width: 49.5%; }
+.list-group-item{border: 0; margin-bottom: 1px; color: #fff; padding: 0; width: 100%; display: inline-block; background-color: #607D8B}
+.list-group-item:first-child, .list-group-item:last-child{border: 0; border-radius: 0 0}
+.list-group-item a{padding: 5px 10px; overflow: hidden;  text-overflow: ellipsis;}
+.list-group-item a, .list-group-item a:hover{display: block; color: inherit; text-decoration: none;cursor: pointer;}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover, .list-group-item:hover{background:#00BCD4; text-shadow: 0 0 0; color: #fff; text-decoration: none;}
+.well{/* background: #455A64;  */   border: 0; box-shadow: none; }
+
+ .btn-danger, .btn-default, .btn-info, .btn-primary, .btn-success, .btn-warning{
+    background-image: none;
+    box-shadow: 0 0 0 0;
+    text-shadow: 0 0 0 0; 
+ }
+ .btn-link{
+    background-color: #f6f6f6;
+    border: 0;
+
+ }
+
+.btn-link.active, .btn-link:active, .btn-link:focus, .btn-link:hover{
+   background-color: #eaeaea;
+
+} 
+
+/* Toggle Styles */
+.desktop{display: none!important;}
+.mobile{display: block!important;}
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    margin-bottom: 20px;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 0px;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    margin-left: 0px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    overflow: hidden;
+}
+
+.sidebar-nav li {
+    line-height: 30px;
+    /* float: left;
+    width: 25%; */
+    display: inline-block;
+    text-align: center;
+
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+    font-size: 11px;
+    padding: 5px 7px;
+}
+.sidebar-nav li a .fa{font-size: 22px;}
+.sidebar-nav li a span{display: block; line-height: 21px}
+
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+.sidebar-nav li a .fa{
+    display: block;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 21px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+
+#trending-tweets, #brand-topics, #brand-trends{padding-top: 10px; margin-bottom: 70px }
+#trends{overflow: hidden;}
+footer {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0px;
+    width: 100%;    
+}
+h3{float: left;
+    margin: 0;
+}
+h3.logo{
+    background: url(../img/WUNDERLIVELARGOTRANS.png);
+    color: #FFF;
+    float: left;
+    width: 250px;
+    height: 50px;  
+}
+.row{margin: 0;}
+
+#menu_desktop{
+display: none;
+} 
+
+/*
+///////////////////////////////////////////////////////////////////////////////////
+    TWEETS
+///////////////////////////////////////////////////////////////////////////////////
+*/
+
+.list-group .list-group-item.active a { color: #FFF; /*font-weight: bold;*/ }
+.list-group {margin-bottom:  0}
+ #trending-tweets{height: 100%}
+.tweetList { width: 599px; min-height: 400px; margin: 0px auto 10px;}
+.tweetList .media { display:none; }
+.tweetList .media.active { display:table; min-height: 400px;}
+.tweetList .media .media-object {margin: 0 auto;max-height: 399px;max-width: 600px; }
+.tweetList .media .media-img { display: table-row; }
+.tweetList .media .media-body {     display: table-row; }
+.tweetList .media .media-heading { margin: 5px; }
+
+.tweetStop { width: 150px; height: 35px; display:inline-block;  }
+.tweetPlay { width: 150px; height: 35px; display:inline-block; }
+.tweetPrev { display: block; position: relative; width: 40px; height: 40px; }
+.tweetNext { display: block; position: relative; width: 40px; height: 40px; }
+.tweetPrev span { font-size: 42px; }
+.tweetNext span { font-size: 42px; }
+
+#control-tweet-mobile{
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.content .tweetPrev, .content .tweetNext { margin-top: 190px; }
+
+.well .tweetPrev { position: absolute; top: 15px; left: 0px; }
+.well .tweetNext { position: absolute; top: 15px; right: 0px; }
+/*
+///////////////////////////////////////////////////////////////////////////////////
+    BRAND TRENDS
+///////////////////////////////////////////////////////////////////////////////////
+*/
+
+
+.brand_trends{/*margin-top: 30px*/}
+.brand_trends p{
+    text-align: center;
+    background-color: #E4E1E1;
+    font-size: 18px;
+    padding: 5px 0;
+    color: #fff;   
+    /*position: absolute;
+    top: -30px;*/
+    width: 100%;
+    /* margin:0 10px;  */
+}
+.brand_trends div{
+    /* position: relative; */
+    font-size: 1em;
+    margin:0px auto;
+    /*width: 100%;
+    overflow: visible;*/
+    /*background-color: #EFEFEF;*/
+    /*display: none;*/
+}
+.brand_trends div:first-child{display: block;}
+.brand_trends div span{cursor: pointer;}
+.brand_trends .CEPSA p{    
+    background-color: #e60000;
+}
+.brand_trends .REPSOL p{    
+    background-color: #F70;
+}
+.brand_trends .BP p{    
+    background-color: #007f00;
+}
+.brand_trends .GALP p{    
+    background-color: #f37020;
+}
+.brand_trends p {background-color: #001780;}
+
+
+.brand_trends iframe{
+    height: 500px !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-width: 300px
+    
+}
+.brand_trends iframe .non-touch-display{
+    font-size: 150%;
+} 
+
+url-top .scrollable-container, url-rising .layout-container{    
+    width: 100%;
+    padding: 2%;
+    font-size: 1em;
+}
+url-top .scrollable-container{
+    float: left;
+}
+url-rising .layout-container{
+    float: right;  
+}
+url-top .trends-bar-chart-name{width: 100%;}
+url-top .continuous-hotness-scale{width: 100%;}
+
+
+/*
+///////////////////////////////////////////////////////////////////////////////////
+    BRAND TOPICS
+///////////////////////////////////////////////////////////////////////////////////
+*/
+
+
+
+.brand_topics{/*margin-top: 30px*/}
+.brand_topics p{
+    text-align: center;
+    background-color: #E4E1E1;
+    font-size: 18px;
+    padding: 5px 0;
+    color: #fff;   
+    /* position: absolute;
+    top: -30px; */
+    width: 100%;
+    /* margin:0 10px;  */
+}
+
+.brand_topics div{
+ /*    position: absolute;
+ top:0;
+ left: 0; */
+    margin:0px auto;
+    font-size: 0.9em;
+/*    width: 100%;
+     height: 500px; 
+    overflow: visible;*/
+    background-color: #EFEFEF;
+    /*display: none;*/
+}
+.brand_topics div span{cursor: pointer;}
+.brand_topics .cepsa p{    
+    background-color: #e60000;
+}
+.brand_topics .cepsa_fb p{    
+    background-color: #3a5795;
+}
+.brand_topics .repsol_tw p{    
+    background-color: #F70;
+}
+.brand_topics .bp p{    
+    background-color: #007f00;
+}
+.brand_topics .galp p{    
+    background-color: #f37020;
+}
+.brand_topics p {background-color: #001780;}
+.copyright{display: none;}
+
+#brand_mention ul {padding: 0}
+
+.brand_topics div.cloud_mentions{
+    position: absolute;
+    width: 00px;
+    height: 300px;
+    border: 1px solid #000;
+    padding: 10px;
+    right: -100%;
+    z-index: 50;
+}
+.brand_topics div.cloud_mentions ul{
+    margin: 0;
+    padding: 0;    
+    list-style: none;
+}
+.brand_topics div.cloud_mentions ul li{
+    
+}
+.brand_topics div.cloud_mentions h4{
+    font-size: 16px;
+}
+.brand_topics div.cloud_mentions p{
+    background: #fff;
+    color: #000;
+    text-align: left;
+    font-size: 16px; 
+}
+.brand_topics div.cloud_mentions a{
+    font-size: 12px;
+}
+
+/* CARRUSEL TWITTER LOOK */
+
+
+
+
+.searches-share, .embed-footer{display: none;}
+
+.carousel-control.right,.carousel-control.left{background-image: none;}
+.carousel-caption {
+    top: 0;
+    position: relative;
+    right: 0;
+    left: 0;
+    color: #000;
+    text-shadow: none;    
+    text-align: left;
+    padding: 0;
+    @media screen and (min-width: 768px){
+        right: 0;
+        left: 0;    
+        padding: 0;    
+    }
+}
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 890px;    
+    margin: 0 auto;
+    background-color: #fff;
+    /* border: 1px solid #607D8B; */
+    .item{
+        padding: 20px;
+        a:hover{text-decoration: none;}
+    }
+}
+.carousel-indicators{
+    position: relative;
+    bottom: -10px;
+    @media screen and (min-width: 768px){
+        bottom: -10px;
+    }
+    li{
+        border: 1px solid #607D8B;
+        &.active{
+            background-color: #607D8B;
+        }
+    }
+}
+.carousel-control {width: 5%;}
+.carousel-control span{color: #607D8B;}
+.dot{
+    vertical-align: sub;
+    height: 10px;
+    display: inline-block;    
+}
+.photo{
+    float: left;
+    margin-right: 10px;    
+}
+
+.carousel-control.right{right: -2%; display: none;}
+.carousel-control.left{left: -2%; display: none;}
+
+/* tab twitter */
+#trending-tweets .nav-tabs {
+    border-bottom: 1px solid #eee;
+    background-color: #eee;
+}
+#trending-tweets .nav-tabs>li>a{color: #999; cursor: pointer; border: 0; border-radius: 0;}
+#trending-tweets .nav-tabs>li.active>a, #trending-tweets .nav-tabs>li.active>a:focus, #trending-tweets .nav-tabs>li.active>a:hover {
+  background-color: #40c4ff;
+  color: #fff;  
+}
+
+
+.view-animate-container {
+  position:relative;
+  height:100px!important;
+  background:white;
+  border:1px solid black;
+  height:40px;
+  overflow:hidden;
+}
+
+.view-animate {
+  padding:10px;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1.5s;
+
+  display:block;
+  width:100%;
+  border-left:1px solid black;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  left:-100%;
+}
+
+/* carousel */
+.carouselbox {
+  font-family: helvetica,sans-serif;
+  font-size: 14px;
+  /* width: 100px; */
+  width: 98%;
+  position: relative;
+  margin: 1em;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 10px #ccc;
+  overflow: hidden;
+}
+.carouselbox .content {
+  margin: 0;
+  padding: 0;
+      min-height: 400px;
+}
+.carouselbox .content li {
+  /*font-size: 100px;*/
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  list-style: none;
+  text-align: center;
+  z-index: 2;
+    left: 5%;
+}
+.carouselbox .active {
+  /* height: 130px; */
+}
+.carouselbox button {
+  border: none;
+  /*visibility: hidden;*/
+}
+/*.active button {
+  visibility: visible;
+}*/ 
+.offscreen {
+  position: absolute;
+  left: -2000px;
+}
+.carouselbox .buttons {
+  padding: 5px 0;
+  background: #eee;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+.carouselbox li a,.carouselbox li a:hover {
+  color: #369;
+  text-decoration: none;
+}
+.carouselbox li {
+  position: absolute;
+  top: 10px;
+  pointer-events: none;
+  opacity: 0;
+  //transform: translate(-100,0);
+  transition: 2s;
+  height: 400px;
+}
+.carouselbox li.current {
+  pointer-events: auto;
+  opacity: 1;
+  //transform: translate(0,0);
+  transition: 2s;
+}
+.carouselbox .media-img{
+    height: 100%;
+    max-height: 245px;
+}
+.carouselbox .media-img img{
+    height: 100%;
+    max-width: 100%;
+}
+/* carousel */
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
+
+
+
+@media(min-width:768px) {
+    body{padding-bottom: 0}
+    .desktop{display: block!important;}
+    .mobile{display: none!important;}
+    #menu_desktop{display: block; }
+    #wrapper {
+        padding-left: 250px;
+        margin-bottom: 0;
+    }
+
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+    #sidebar-wrapper {
+  
+        z-index: 1000;
+        position: fixed;
+        left: 250px;
+        width: 250px;
+        height: 100%;
+        margin-left: -250px;
+        overflow-y: auto;
+        background: #000;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    .sidebar-nav {
+        width: 250px
+    }
+    .sidebar-nav li{
+        text-indent: 20px;
+        width: 100%;
+        text-align: left;
+        display: block;
+        line-height: 40px;
+    }
+    .sidebar-nav li a {    
+        font-size: 18px;
+        padding: 0;
+    }
+    .sidebar-nav li a .fa{display: inline-block; }
+    .sidebar-nav li a span{display: inline-block; line-height: inherit;}
+
+    .copyright{position: fixed; bottom: 0; left: 0; text-align: center; width: 250px}
+    
+
+    #qr{  margin: 20px 0;  position: fixed; bottom: 40px; width: 250px; text-align: center;} 
+    #qr img{width: 80%;  margin: 0 auto; display: inline-block; }
+    #trending-tweets, #brand-topics, #brand-trends{padding-top: 10px; padding-bottom: 0px }
+    #trending-tweets .tweetPrev, #trending-tweets .tweetNext { margin-top: 190px; }
+    
+    .list-group {border: 0; box-shadow: 0 0 0 0; margin-bottom: 0; margin: 0 auto; background-color: @primary-color }
+    .list-group .list-group-item, #tweets-categories .list-group-item{display: inline-block; margin: 0; text-align: center; width: 16.66%;}
+    .list-group-item a{padding: 10px 15px;}
+
+    .brand_trends iframe{width: 49%}
+
+
+    #brand_mention ul{padding-left: 40px; }
+    #topics-categories{text-align: center;}
+    #trends-categories{text-align: center;}
+    url-top .scrollable-container, url-rising .layout-container{ width: 46%; float: left; font-size: 1.2em}
+
+    .carouselbox .content {
+        min-height: 500px;
+    }   
+    .carouselbox .media-img{max-height: 400px;}
+    .carouselbox .media-img img{/*max-width: inherit;*/}
+    .carouselbox li{min-height: 400px; width: 90%;top: 30px;}
+
+    .brand_topics div, .brand_trends div{ max-width: 900px}
+    .brand_topics div{font-size: 1.2em; }
+
+}

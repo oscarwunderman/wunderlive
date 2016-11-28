@@ -1,0 +1,21 @@
+<div class="row" id="brand-topics">
+    <div class="col-lg-12 ">
+        <div class="well">
+            <ul id="topics-categories" class="list-group" data-query='{{categories}}'>
+                <li class="list-group-item" ng-repeat="(key, value) in categories track by $index">
+                    <a class="brandTopicsCategory" data-category="{{ key.toLowerCase() }}" ng-click="topicBot($index,key,value)">
+                       {{value}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="" ng-show="brand !== false" >
+        <div class="brand_topics col-lg-12" id="brand_cloud">
+            <div id="{{brand_key}}" class="{{brand_key}}">
+                <p class="title">{{brand_name}}</p>
+                <jqcloud words="words" height="350" steps="7" autoResize="true"></jqcloud>
+            </div>
+        </div>         
+    </div>
+</div>

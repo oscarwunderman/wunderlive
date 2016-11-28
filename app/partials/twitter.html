@@ -1,0 +1,17 @@
+<div id="trending-tweets" >  
+  <div class="col-lg-12" ng-swipe-right="setTab('categories')"  ng-swipe-left="setTab('tweet')">    
+    <ul class="nav nav-tabs"  ng-show="showTabMenu" >
+        <li class="desktop" ng-class="{active:isSetTab('all')}"><a href ng-click="setTab('all')">All</a></li>
+        <li ng-class="{active:isSetTab('categories')}"><a href ng-click="setTab('categories')">Categorias</a></li>
+        <li ng-class="{active:isSetTab('tweet')}"><a href ng-click="setTab('tweet')">Tweet</a></li>
+    </ul>
+  </div>
+  <div class="tab-content  ">  
+    <div ng-show="isSetTab('categories') || isSetTab('all')" class="col-lg-12" >     
+         <div tweet-categories class="well categoryList"></div>
+    </div>
+    <div ng-show="isSetTab('tweet') || isSetTab('all')" class="col-lg-12" >     
+         <div tweet-list class="well "></div>
+    </div>
+  </div>
+</div>

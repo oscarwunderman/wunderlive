@@ -171,8 +171,9 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                 if (direction === 1 && !$scope.slides[counter]) { 
                     counter = 0;
                 }
-
-                $scope.slides[counter].current = 1;
+                if(!angular.isUndefined($scope.slides[counter])){
+                    $scope.slides[counter].current = 1;                    
+                }
     
                 if (typeof callback == 'function') {
                     callback(counter);

@@ -141,6 +141,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             //$timeout(function(){
                 $scope.slides = [];
                 var tweets = JSON.parse(data);
+                console.log(tweets);
                 angular.forEach(tweets, function(value,key){
                     console.log(key);
                     if(key != 'category'){

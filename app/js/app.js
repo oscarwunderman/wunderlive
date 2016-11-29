@@ -239,7 +239,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                 headers: {
                     'Content-Type' : 'application/x-www-form-urlencoded'
                 }
-            }).then(function successCallback(response){  
+            }).then(function successCallback(response){ 
+                console.log(response);
                 $scope.words = response.data;                                              
             }, function errorCallback(response){
                 console.log(response);

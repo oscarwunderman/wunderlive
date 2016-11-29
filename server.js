@@ -177,7 +177,6 @@ io.on('connection', function (socket) {
 
     socket.on('setCategory', function (category) {
         autoChangeCategory(category);
-      
     });
 
     socket.on('goTweet', function (data) {    

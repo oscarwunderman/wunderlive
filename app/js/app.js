@@ -240,7 +240,6 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                     'Content-Type' : 'application/x-www-form-urlencoded'
                 }
             }).then(function successCallback(response){ 
-                console.log(response);
                 $scope.words = response.data;                                              
             }, function errorCallback(response){
                 console.log(response);
@@ -249,7 +248,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         $timeout(function(){  
             $scope.topic(0,'nivea','NIVEA'); 
-        }); 
+            console.log($scope.words);
+        }, 500); 
 
         $scope.topicBot = function(id,key,value) {
             $scope.topic(id,key,value); 

@@ -129,8 +129,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             return $scope.tab === tabId;
         };     
 
-        socket.on('categories',function(data){ 
-            console.log("Entra en categories");
+        socket.on('categories',function(data){
+            console.log(data);
             $timeout(function(){      
                 $scope.cats = data; 
             });   
@@ -138,8 +138,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         var current = 0;
         socket.on('tweets',function(data){
-            console.log('tweets');
-            $timeout(function(){                  
+            $timeout(function(){   
+                console.log(data);              
                 $scope.slides = [];
                 var tweets = JSON.parse(data);
                 angular.forEach(tweets, function(value,key){

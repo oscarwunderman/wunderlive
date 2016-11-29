@@ -137,11 +137,10 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         var current = 0;
         socket.on('tweets',function(data){
-            console.log("Entra en tweets");
-            //$timeout(function(){
-                console.log(data);
+            $timeout(function(){
                 $scope.slides = [];
                 var tweets = JSON.parse(data);
+                console.log("pasa");
                 console.log(tweets);
                 angular.forEach(tweets, function(value,key){
                     console.log(key);
@@ -152,7 +151,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                     }
                 });           
                 console.log($scope.slides);
-            //});
+            });
         });
 
         $scope.navigate = function(direction,currentBroadcast,callback) {

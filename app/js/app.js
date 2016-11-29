@@ -140,13 +140,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             $timeout(function(){
                 $scope.slides = [];
                 var tweets = JSON.parse(data);
-                console.log("pasa");
-                console.log(tweets);
                 angular.forEach(tweets, function(value,key){
-                    console.log(key);
                     if(key != 'category'){
-                        console.log("Voy a pushear un valor");
-                        console.log(value);
                         $scope.slides.push(value);
                     }
                 });           

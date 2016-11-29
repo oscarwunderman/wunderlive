@@ -241,12 +241,9 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                 }
             }).then(function successCallback(response){ 
                 $timeout(function(){
-                    console.log(response);
                     $scope.words = response.data; 
-                    console.log("cargo palabras");
                 });
             }, function errorCallback(response){
-                console.log("Error: ");
                 console.log(response);
             });
         }

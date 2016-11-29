@@ -240,16 +240,15 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                     'Content-Type' : 'application/x-www-form-urlencoded'
                 }
             }).then(function successCallback(response){ 
-                $scope.words = response.data;                                              
+                $timeout(function(){
+                    $scope.words = response.data;                                              
+                });
             }, function errorCallback(response){
                 console.log(response);
             });
         }
 
-        $timeout(function(){  
-            $scope.topic(0,'nivea','NIVEA'); 
-            console.log($scope.words);
-        }, 500); 
+        $scope.topic(0,'nivea','NIVEA'); 
 
         $scope.topicBot = function(id,key,value) {
             $scope.topic(id,key,value); 

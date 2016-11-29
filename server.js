@@ -133,7 +133,7 @@ function autoChangeCarousel(callback) {
    
 // Esta funcion se encarga de mandar al cliente el listado de tweets
 function updateClientTweets(active,callback) {
-    //console.log('dentroUpdateTweets');
+    console.log('dentroUpdateTweets');
     PostCode('twitter.php?getTweets=1',{cat:active},function(reply) {
         tweets = reply;
         //console.log(reply);

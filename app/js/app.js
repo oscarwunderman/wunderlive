@@ -1,6 +1,7 @@
 angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', 'ngTouch'])
     .constant('myConfig', {
-        'phpUrl': 'http://wundermanlive-tweets.herokuapp.com',
+        'phpUrl': 'http://accion-online.com/nivea/wunderlive',
+        //'phpUrl': 'http://wundermanlive-tweets.herokuapp.com',
         //'phpUrl': 'http://localhost/wunderlive-tweets',
         'brandTrendsCat': {
             'nivea': 'NIVEA',

@@ -28,7 +28,7 @@ var changeTimeoutInterval = (carouselTimeoutInterval * 10); // Tweets lenght
 function PostCode(funct, dataobject, callback) {
     var post_data = querystring.stringify(dataobject);
     var post_options = {
-        host: 'asccion-online.com/nivea/wunderlive',
+        host: 'accion-online.com/nivea/wunderlive',
         port: '80',
         path: '/server/controllers/'+ funct,
         method: 'POST',
@@ -133,7 +133,7 @@ function autoChangeCarousel(callback) {
    
 // Esta funcion se encarga de mandar al cliente el listado de tweets
 function updateClientTweets(active,callback) {
-    console.log('dentroUpdateTweets');
+    //console.log('dentroUpdateTweets');
     PostCode('twitter.php?getTweets=1',{cat:active},function(reply) {
         tweets = reply;
         //console.log(reply);

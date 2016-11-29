@@ -130,6 +130,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         };     
 
         socket.on('categories',function(data){ 
+            console.log("Entra en categories");
             $timeout(function(){      
                 $scope.cats = data; 
             });   
@@ -137,7 +138,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         var current = 0;
         socket.on('tweets',function(data){
-            //console.log('tweets');
+            console.log('tweets');
             $timeout(function(){                  
                 $scope.slides = [];
                 var tweets = JSON.parse(data);

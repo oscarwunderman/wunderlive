@@ -28,9 +28,9 @@ var changeTimeoutInterval = (carouselTimeoutInterval * 10); // Tweets lenght
 function PostCode(funct, dataobject, callback) {
     var post_data = querystring.stringify(dataobject);
     var post_options = {
-        host: 'accion-online.com/nivea/wunderlive',
+        host: 'accion-online.com',
         port: '80',
-        path: '/server/controllers/'+ funct,
+        path: '/nivea/wunderlive/server/controllers/'+ funct,
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

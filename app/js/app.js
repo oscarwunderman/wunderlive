@@ -241,14 +241,15 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                 }
             }).then(function successCallback(response){ 
                 $timeout(function(){
-                    $scope.words = response.data;                                              
+                    $scope.words = response.data; 
+                    console.log("cargo palabras");
+                    console.log($scope.words);                                          
                 });
             }, function errorCallback(response){
+                console.log("Error: ");
                 console.log(response);
             });
         }
-
-        $scope.topic(0,'nivea','NIVEA'); 
 
         $scope.topicBot = function(id,key,value) {
             $scope.topic(id,key,value); 
@@ -256,10 +257,9 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         }
 
         socket.on('brandTopicsCategory',function(data){
-            $timeout(function(){ 
-                $scope.topic(data.id,data.category,data.brand);
-            });
+            $scope.topic(data.id,data.category,data.brand);
         });        
+        $scope.topic(0,'nivea','NIVEA'); 
     }])
     .controller('BrandTrendsCtrl', ['$http','$scope','myConfig','$sce','socket','$timeout', function($http,$scope,myConfig,$sce,socket,$timeout){
 

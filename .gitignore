@@ -4,6 +4,5 @@ composer.json
 composer.lock
 bower_components
 notes.md
-node_modules
 server\node_modules
 .env

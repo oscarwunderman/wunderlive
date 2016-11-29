@@ -138,7 +138,6 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         var current = 0;
         socket.on('tweets',function(data){
             console.log("Entra en tweets");
-            console.log(data);
             $timeout(function(){
                 $scope.slides = [];
                 var tweets = JSON.parse(data);

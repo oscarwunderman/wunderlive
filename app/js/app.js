@@ -241,6 +241,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                 }
             }).then(function successCallback(response){ 
                 $timeout(function(){
+                    console.log("Voy a pintar las palabras");
+                    console.log(response);
                     $scope.words = response.data; 
                 });
             }, function errorCallback(response){

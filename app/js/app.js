@@ -182,7 +182,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         }
 
         $scope.set = function(id) {
-            //socket.emit('setCategory',id);
+            socket.emit('setCategory',id);
             $timeout(function(){     
                 $scope.slides = [];      
             });  

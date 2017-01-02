@@ -165,13 +165,13 @@ PostCode('twitter.php?getCategories=1',{},function(reply) {
 // INICIAMOS EL SERVIDOR SOCKET.IO DESPUES DE TODO LO DEMAS
 io.on('connection', function (socket) {
     socket.emit('categories', categories); // Mandamos al cliente conectado el listado de categorias
-    socket.broadcast.emit('categories', categories);
+    //socket.broadcast.emit('categories', categories);
     socket.emit('tweets', tweets); // Mandamos al cliente el listado de tweets actual
-    socket.broadcast.emit('tweets', tweets);
+    //socket.broadcast.emit('tweets', tweets);
     socket.emit('carouselChange', { index : activeTweet , direction : 1 }); // Marcamos el actual
-    socket.broadcast.emit('carouselChange', { index : activeTweet , direction : 1 });
+    //socket.broadcast.emit('carouselChange', { index : activeTweet , direction : 1 });
     socket.emit('updateStatus', { status : carouselStatus }); // Update Status      
-    socket.broadcast.emit('updateStatus', { status : carouselStatus });  
+    //socket.broadcast.emit('updateStatus', { status : carouselStatus });  
 
     //autoChangeCategory();
 
@@ -184,7 +184,7 @@ io.on('connection', function (socket) {
         activeTweet = data.activeTweet;
         //console.log(data);
         socket.emit('carouselChange', { index : data.activeTweet, direction : data.direction });
-        socket.broadcast.emit('carouselChange', { index : data.activeTweet, direction : data.direction });
+        //socket.broadcast.emit('carouselChange', { index : data.activeTweet, direction : data.direction });
         console.log('backTweet '+ activeTweet); 
     });
 
@@ -216,39 +216,39 @@ io.on('connection', function (socket) {
     socket.on('brandTopicsCategory', function (data) {
         console.log(data);
         //socket.emit('brandTopicsCategory', {id: data.id, category: data.category, brand: data.brand}); 
-        socket.broadcast.emit('brandTopicsCategory', {id: data.id, category: data.category, brand: data.brand});         
+        //socket.broadcast.emit('brandTopicsCategory', {id: data.id, category: data.category, brand: data.brand});         
     });
 
     socket.on('brandTrendsCategory', function (data) {
         console.log(data);
         //socket.emit('brandTrendsCategory', {id: data.id, category: data.category, brand: data.brand}); 
-        socket.broadcast.emit('brandTrendsCategory',{id: data.id, category: data.category, brand: data.brand});         
+        //socket.broadcast.emit('brandTrendsCategory',{id: data.id, category: data.category, brand: data.brand});         
     });
 
     socket.on('menuHome', function () {  
         console.log('server home');
         socket.emit('menuHome');
-        socket.broadcast.emit('menuHome');
+        //socket.broadcast.emit('menuHome');
         socket.emit('categories', categories); // Mandamos al cliente conectado el listado de categorias
-        socket.broadcast.emit('categories', categories);
+        //socket.broadcast.emit('categories', categories);
         socket.emit('tweets', tweets); // Mandamos al cliente el listado de tweets actual
-        socket.broadcast.emit('tweets', tweets);
+        //socket.broadcast.emit('tweets', tweets);
         socket.emit('carouselChange', { index : activeTweet , direction : 1 }); // Marcamos el actual
-        socket.broadcast.emit('carouselChange', { index : activeTweet , direction : 1 });
+        //socket.broadcast.emit('carouselChange', { index : activeTweet , direction : 1 });
         socket.emit('updateStatus', { status : carouselStatus }); // Update Status      
-        socket.broadcast.emit('updateStatus', { status : carouselStatus });  
+        //socket.broadcast.emit('updateStatus', { status : carouselStatus });  
     });
 
     socket.on('menuTrends', function () {
         console.log('server menuTrends');
         socket.emit('menuTrends');
-        socket.broadcast.emit('menuTrends');
+        //socket.broadcast.emit('menuTrends');
     });
 
     socket.on('menuBrandTrends', function () {
         console.log('server menuBrandTrends');
         socket.emit('menuBrandTrends');
-        socket.broadcast.emit('menuBrandTrends');
+        //socket.broadcast.emit('menuBrandTrends');
         //socket.emit('brandTrendsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});
         //socket.broadcast.emit('brandTrendsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});        
     });
@@ -256,7 +256,7 @@ io.on('connection', function (socket) {
     socket.on('menuBrandTopics', function () {
         console.log('server menuBrandTopics');
         socket.emit('menuBrandTopics');
-        socket.broadcast.emit('menuBrandTopics');
+        //socket.broadcast.emit('menuBrandTopics');
         //socket.emit('brandTopicsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'}); 
         //socket.broadcast.emit('brandTopicsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});         
     });

@@ -129,11 +129,11 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             return $scope.tab === tabId;
         };     
 
-        socket.on('categories',function(data){
+        /*socket.on('categories',function(data){
             $timeout(function(){      
                 $scope.cats = data; 
             });   
-        });
+        });*/
 
         var current = 0;
         socket.on('tweets',function(data){
@@ -252,12 +252,12 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         $scope.topicBot = function(id,key,value) {
             $scope.topic(id,key,value); 
-            socket.emit('brandTopicsCategory',{id: id,category: key,brand: value}); 
+            //socket.emit('brandTopicsCategory',{id: id,category: key,brand: value}); 
         }
 
-        socket.on('brandTopicsCategory',function(data){
+        /*socket.on('brandTopicsCategory',function(data){
             $scope.topic(data.id,data.category,data.brand);
-        });        
+        });*/        
         $scope.topic(0,'nivea','NIVEA'); 
     }])
     .controller('BrandTrendsCtrl', ['$http','$scope','myConfig','$sce','socket','$timeout', function($http,$scope,myConfig,$sce,socket,$timeout){
@@ -312,14 +312,14 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         $scope.trendBot = function(id,key,value) {
             $scope.trend(id,key,value); 
-            socket.emit('brandTrendsCategory',{id: id,category: key,brand: value}); 
+            //socket.emit('brandTrendsCategory',{id: id,category: key,brand: value}); 
         }
  
-        socket.on('brandTrendsCategory',function(data){
+        /*socket.on('brandTrendsCategory',function(data){
             $timeout(function(){ 
                 $scope.trend(data.id,data.category,data.brand);
             });
-        });
+        });*/
     }])
 ;
 var trends = { 

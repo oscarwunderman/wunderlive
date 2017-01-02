@@ -129,11 +129,11 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             return $scope.tab === tabId;
         };     
 
-        /*socket.on('categories',function(data){
+        socket.on('categories',function(data){
             $timeout(function(){      
                 $scope.cats = data; 
             });   
-        });*/
+        });
 
         var current = 0;
         socket.on('tweets',function(data){
@@ -145,7 +145,6 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                         $scope.slides.push(value);
                     }
                 });           
-                console.log($scope.slides);
             });
         });
 
@@ -241,8 +240,6 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
                 }
             }).then(function successCallback(response){ 
                 $timeout(function(){
-                    console.log("Voy a pintar las palabras");
-                    console.log(response);
                     $scope.words = response.data; 
                 });
             }, function errorCallback(response){

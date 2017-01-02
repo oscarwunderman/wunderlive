@@ -129,11 +129,11 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
             return $scope.tab === tabId;
         };     
 
-        /*socket.on('categories',function(data){
+        socket.on('categories',function(data){
             $timeout(function(){      
                 $scope.cats = data; 
             });   
-        });*/
+        });
 
         var current = 0;
         socket.on('tweets',function(data){
@@ -182,7 +182,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         }
 
         $scope.set = function(id) {
-            socket.emit('setCategory',id);
+            //socket.emit('setCategory',id);
             $timeout(function(){     
                 $scope.slides = [];      
             });  

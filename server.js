@@ -213,16 +213,19 @@ io.on('connection', function (socket) {
 */
 
     socket.on('brandTopicsCategory', function (data) {
-        socket.emit('brandTopicsCategory', {id: data.id, category: data.category, brand: data.brand}); 
+        console.log(data);
+        //socket.emit('brandTopicsCategory', {id: data.id, category: data.category, brand: data.brand}); 
         //socket.broadcast.emit('brandTopicsCategory', {id: data.id, category: data.category, brand: data.brand});         
     });
 
     socket.on('brandTrendsCategory', function (data) {
-        socket.emit('brandTrendsCategory', {id: data.id, category: data.category, brand: data.brand}); 
+        console.log(data);
+        //socket.emit('brandTrendsCategory', {id: data.id, category: data.category, brand: data.brand}); 
         //socket.broadcast.emit('brandTrendsCategory',{id: data.id, category: data.category, brand: data.brand});         
     });
 
     socket.on('menuHome', function () {  
+        console.log('server home');
         socket.emit('menuHome');
         //socket.broadcast.emit('menuHome');
         socket.emit('categories', categories); // Mandamos al cliente conectado el listado de categorias
@@ -245,7 +248,7 @@ io.on('connection', function (socket) {
         console.log('server menuBrandTrends');
         socket.emit('menuBrandTrends');
         //socket.broadcast.emit('menuBrandTrends');
-        socket.emit('brandTrendsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});
+        //socket.emit('brandTrendsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});
         //socket.broadcast.emit('brandTrendsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});        
     });
 
@@ -253,7 +256,7 @@ io.on('connection', function (socket) {
         console.log('server menuBrandTopics');
         socket.emit('menuBrandTopics');
         //socket.broadcast.emit('menuBrandTopics');
-        socket.emit('brandTopicsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'}); 
+        //socket.emit('brandTopicsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'}); 
         //socket.broadcast.emit('brandTopicsCategory', {id: 0, category: 'nivea', brand: 'NIVEA'});         
     });
 

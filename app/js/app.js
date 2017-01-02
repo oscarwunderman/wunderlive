@@ -182,7 +182,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         }
 
         $scope.set = function(id) {
-            //socket.emit('setCategory',id);
+            socket.emit('setCategory',id);
             $timeout(function(){     
                 $scope.slides = [];      
             });  
@@ -198,6 +198,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         socket.on('carouselChange',function(data){
             $timeout(function(){ 
+                alert("dd");
                 $scope.navigate(data.direction,data.index);
             });
         });

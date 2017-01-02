@@ -198,7 +198,6 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
 
         socket.on('carouselChange',function(data){
             $timeout(function(){ 
-                alert("dd");
                 $scope.navigate(data.direction,data.index);
             });
         });

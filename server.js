@@ -95,7 +95,7 @@ function autoChangeCategory(category) {
     //console.log(categories);
     clearTimeout(carouselTimeout); // paramos el movimiento dle carrusel
     //io.sockets.emit('categories', categories); // mandamos la nueva lista de categorias o nueva seleccionada
-    socket.emit('categories', categories);
+    io.client.emit('categories', categories);
     updateClientTweets(activeCategory,function(){
         //console.log(tweets.length);
         activeTweet = -1; // nos ponemos en -1 para pasar a 0 en la primera llamada del update
@@ -119,7 +119,8 @@ function autoChangeCarousel(callback) {
     if (activeTweet >= (tweets.length)) {
         return;
     }
-    io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
+    //io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
+    io.client.emit('carouselChange', { index : activeTweet , direction : 1});
     if (carouselStatus == 1) {
         carouselTimeout = setTimeout(function() {
             autoChangeCarousel();
@@ -142,7 +143,8 @@ function updateClientTweets(active,callback) {
         if (activeTweet >= (tweets.length)) {
             return;
         }
-        io.sockets.emit('tweets', tweets);
+        io.clients.emit('tweets', tweets);
+        //io.sockets.emit('tweets', tweets);
         console.log('UPDATE CLIENT TWEETS');
         if (typeof callback == 'function') {
             callback();

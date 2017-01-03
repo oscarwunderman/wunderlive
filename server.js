@@ -25,6 +25,8 @@ var activeCategory;
 var changeTimeout;
 var changeTimeoutInterval = (carouselTimeoutInterval * 10); // Tweets lenght
 
+var socketid;
+
 function PostCode(funct, dataobject, callback) {
     var post_data = querystring.stringify(dataobject);
     var post_options = {
@@ -95,7 +97,7 @@ function autoChangeCategory(category) {
     //console.log(categories);
     clearTimeout(carouselTimeout); // paramos el movimiento dle carrusel
     //io.sockets.emit('categories', categories); // mandamos la nueva lista de categorias o nueva seleccionada
-    io.client.emit('categories', categories);
+    io.to(socketid).emit('categories', categories);
     updateClientTweets(activeCategory,function(){
         //console.log(tweets.length);
         activeTweet = -1; // nos ponemos en -1 para pasar a 0 en la primera llamada del update
@@ -120,7 +122,7 @@ function autoChangeCarousel(callback) {
         return;
     }
     //io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
-    io.client.emit('carouselChange', { index : activeTweet , direction : 1});
+    io.to(socketid).emit('carouselChange', { index : activeTweet , direction : 1});
     if (carouselStatus == 1) {
         carouselTimeout = setTimeout(function() {
             autoChangeCarousel();
@@ -143,7 +145,7 @@ function updateClientTweets(active,callback) {
         if (activeTweet >= (tweets.length)) {
             return;
         }
-        io.clients.emit('tweets', tweets);
+        io.to(socketid).emit('tweets', tweets);
         //io.sockets.emit('tweets', tweets);
         console.log('UPDATE CLIENT TWEETS');
         if (typeof callback == 'function') {
@@ -166,6 +168,7 @@ PostCode('twitter.php?getCategories=1',{},function(reply) {
 
 // INICIAMOS EL SERVIDOR SOCKET.IO DESPUES DE TODO LO DEMAS
 io.on('connection', function (socket) {
+    socketid = socket.id;
     socket.emit('categories', categories); // Mandamos al cliente conectado el listado de categorias
     //socket.broadcast.emit('categories', categories);
     socket.emit('tweets', tweets); // Mandamos al cliente el listado de tweets actual

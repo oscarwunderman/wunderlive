@@ -197,6 +197,8 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         }       
 
         socket.on('carouselChange',function(data){
+            console.log('carouselChange');
+            console.log(data);
             $timeout(function(){ 
                 $scope.navigate(data.direction,data.index);
             });

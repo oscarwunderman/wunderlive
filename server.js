@@ -113,7 +113,7 @@ function autoChangeCategory(category, socketId) {
 }
    
 // Funcion para pasar a la siguiente posicion del carrusel de tweets
-function autoChangeCarousel(callback, socketid) {
+function autoChangeCarousel(callback) {
     //console.log('dentroChageCarrusel');
     activeTweet = activeTweet + 1;
     //console.log('activeTweet '+ activeTweet +'/'+ tweets.length);
@@ -121,8 +121,8 @@ function autoChangeCarousel(callback, socketid) {
     if (activeTweet >= (tweets.length)) {
         return;
     }
-    //io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
-    io.to(socketid).emit('carouselChange', { index : activeTweet , direction : 1});
+    io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
+    //io.to(socketid).emit('carouselChange', { index : activeTweet , direction : 1});
     if (carouselStatus == 1) {
         carouselTimeout = setTimeout(function() {
             autoChangeCarousel();

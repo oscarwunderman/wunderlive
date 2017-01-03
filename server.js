@@ -101,7 +101,7 @@ function autoChangeCategory(category, socketId) {
     updateClientTweets(activeCategory,function(){
         //console.log(tweets.length);
         activeTweet = -1; // nos ponemos en -1 para pasar a 0 en la primera llamada del update
-        autoChangeCarousel(socketId); // marcamos el siguiente del carrusel (en este caso el primero)
+        autoChangeCarousel(); // marcamos el siguiente del carrusel (en este caso el primero)
         // Iniciamos los timmers
         /*if (carouselStatus == 1) { // Solo iniciamos la carga del siguiente si el carrusel no esta parado.
             changeTimeout = setTimeout(function() {
@@ -109,7 +109,7 @@ function autoChangeCategory(category, socketId) {
             }, changeTimeoutInterval);
         }*/
         console.log('CHANGE CATEGORY:' + activeCategory);
-    }); // mandamos el listado de tweets de la categoria activa
+    }, socketId); // mandamos el listado de tweets de la categoria activa
 }
    
 // Funcion para pasar a la siguiente posicion del carrusel de tweets
@@ -121,8 +121,8 @@ function autoChangeCarousel(callback) {
     if (activeTweet >= (tweets.length)) {
         return;
     }
-    io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
-    //io.to(socketid).emit('carouselChange', { index : activeTweet , direction : 1});
+    //io.sockets.emit('carouselChange', { index : activeTweet , direction : 1});
+    io.to(socketid).emit('carouselChange', { index : activeTweet , direction : 1});
     if (carouselStatus == 1) {
         carouselTimeout = setTimeout(function() {
             autoChangeCarousel();
@@ -135,7 +135,7 @@ function autoChangeCarousel(callback) {
 }
    
 // Esta funcion se encarga de mandar al cliente el listado de tweets
-function updateClientTweets(active,callback) {
+function updateClientTweets(active,callback, socketId) {
     //console.log('dentroUpdateTweets');
     PostCode('twitter.php?getTweets=1',{cat:active},function(reply) {
         tweets = reply;
@@ -145,7 +145,7 @@ function updateClientTweets(active,callback) {
         if (activeTweet >= (tweets.length)) {
             return;
         }
-        io.to(socketid).emit('tweets', tweets);
+        io.to(socketId).emit('tweets', tweets);
         //io.sockets.emit('tweets', tweets);
         console.log('UPDATE CLIENT TWEETS');
         if (typeof callback == 'function') {

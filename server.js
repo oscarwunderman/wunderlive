@@ -94,8 +94,8 @@ function autoChangeCategory(category) {
     //console.log('activeCategory '+activeCategory); 
     //console.log(categories);
     clearTimeout(carouselTimeout); // paramos el movimiento dle carrusel
-    io.sockets.emit('categories', categories); // mandamos la nueva lista de categorias o nueva seleccionada
-
+    //io.sockets.emit('categories', categories); // mandamos la nueva lista de categorias o nueva seleccionada
+    socket.emit('categories', categories);
     updateClientTweets(activeCategory,function(){
         //console.log(tweets.length);
         activeTweet = -1; // nos ponemos en -1 para pasar a 0 en la primera llamada del update

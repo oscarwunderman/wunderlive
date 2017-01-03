@@ -61,7 +61,7 @@ function PostCode(funct, dataobject, callback) {
 }
    
 // Funcion para pasar automaticamente de categoria y emitirlo a los clientes
-function autoChangeCategory(category) {
+function autoChangeCategory(category, socketId) {
     if (category == null) {
         for(var cats in categories) {    
             if (categories[cats].active == 1) {
@@ -97,7 +97,7 @@ function autoChangeCategory(category) {
     //console.log(categories);
     clearTimeout(carouselTimeout); // paramos el movimiento dle carrusel
     //io.sockets.emit('categories', categories); // mandamos la nueva lista de categorias o nueva seleccionada
-    io.to(socketid).emit('categories', categories);
+    io.to(socketId).emit('categories', categories);
     updateClientTweets(activeCategory,function(){
         //console.log(tweets.length);
         activeTweet = -1; // nos ponemos en -1 para pasar a 0 en la primera llamada del update
@@ -168,7 +168,6 @@ PostCode('twitter.php?getCategories=1',{},function(reply) {
 
 // INICIAMOS EL SERVIDOR SOCKET.IO DESPUES DE TODO LO DEMAS
 io.on('connection', function (socket) {
-    socketid = socket.id;
     socket.emit('categories', categories); // Mandamos al cliente conectado el listado de categorias
     //socket.broadcast.emit('categories', categories);
     socket.emit('tweets', tweets); // Mandamos al cliente el listado de tweets actual
@@ -181,7 +180,7 @@ io.on('connection', function (socket) {
     //autoChangeCategory();
 
     socket.on('setCategory', function (category) {
-        autoChangeCategory(category);
+        autoChangeCategory(category, socket.id);
     });
 
     socket.on('goTweet', function (data) {    

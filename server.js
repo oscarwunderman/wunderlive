@@ -101,7 +101,7 @@ function autoChangeCategory(category, socketId) {
     updateClientTweets(activeCategory,function(){
         //console.log(tweets.length);
         activeTweet = -1; // nos ponemos en -1 para pasar a 0 en la primera llamada del update
-        autoChangeCarousel(); // marcamos el siguiente del carrusel (en este caso el primero)
+        autoChangeCarousel(socketId); // marcamos el siguiente del carrusel (en este caso el primero)
         // Iniciamos los timmers
         /*if (carouselStatus == 1) { // Solo iniciamos la carga del siguiente si el carrusel no esta parado.
             changeTimeout = setTimeout(function() {
@@ -113,7 +113,7 @@ function autoChangeCategory(category, socketId) {
 }
    
 // Funcion para pasar a la siguiente posicion del carrusel de tweets
-function autoChangeCarousel(callback) {
+function autoChangeCarousel(callback, socketid) {
     //console.log('dentroChageCarrusel');
     activeTweet = activeTweet + 1;
     //console.log('activeTweet '+ activeTweet +'/'+ tweets.length);

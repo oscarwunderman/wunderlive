@@ -130,6 +130,7 @@ angular.module('app',['ngRoute','ngSanitize','angular-jqcloud','ui.bootstrap', '
         };     
 
         socket.on('categories',function(data){
+            console.log(data);
             $timeout(function(){      
                 $scope.cats = data; 
             });   

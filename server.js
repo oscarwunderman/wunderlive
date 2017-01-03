@@ -168,7 +168,7 @@ PostCode('twitter.php?getCategories=1',{},function(reply) {
 
 // INICIAMOS EL SERVIDOR SOCKET.IO DESPUES DE TODO LO DEMAS
 io.on('connection', function (socket) {
-    autoChangeCategory(null, socket.id);
+    autoChangeCategory(0, socket.id);
     socket.emit('categories', categories); // Mandamos al cliente conectado el listado de categorias
     //socket.broadcast.emit('categories', categories);
     socket.emit('tweets', tweets); // Mandamos al cliente el listado de tweets actual
